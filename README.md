@@ -59,9 +59,13 @@ L'héritage des autorisations a été rompu sur tous les sous-dossiers de D:\DAT
 * Production : Droits en modification pour GG_Production et administration pour GG_Informatique.
 * Public : Droits en modification pour l'ensemble des employés via GG_TousLesEmployes et administration pour GG_Informatique.
 
-## 4. Automatisation du Mappage Réseau (GPO)
-Mise en place et liaison de la stratégie GPO_LecteursReseaux sur l'OU Citadelle_Solutions :
-
-* Lecteur G: (Public) : Mappage automatique du dossier \\DC-MTL\DATA$\Public pour le groupe GG_TousLesEmployes.
-* Lecteur S: (Service) : Mappage dynamique du dossier de département correspondant à l'utilisateur (\\DC-MTL\DATA$\<NomDuService>) grâce au Ciblage par élément (Item-Level Targeting) basé sur l'appartenance aux groupes GG_*.
-* Lecteur P: (Dossier Personnel) : Connexion automatique d'un répertoire individuel sécurisé pour chaque utilisateur lors de l'ouverture de session.
+## 4. Automatisation du Mappage Réseau par GPO (Lettres officielles du document)
+Mise en place et liaison de la stratégie GPO_LecteursReseaux sur l'OU Citadelle_Solutions pour automatiser la connexion des lecteurs à l'ouverture de session:  
+* $X:= DATA\Marketing
+* $Y:= DATA\Finance
+* $Z:= DATA\Direction
+* $M:= DATA\ServiceClients
+* $N:= DATA\RH
+* $H:= DATA\Production
+* $G:= DATA\Public   
+* $P:= Dossier Personnel (Connecté automatiquement pour chaque utilisateur)
