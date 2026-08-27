@@ -62,4 +62,4 @@
 
 ## Résultat attendu de l'interface Microsoft Configuration Manager
 
-![Interface fonctionnelle](Interface-fonctionnelle.png)
+![Interface fonctionnelle](Images/Interface-fonctionnelle.png)
