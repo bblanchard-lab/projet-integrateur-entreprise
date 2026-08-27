@@ -36,7 +36,7 @@ Les utilisateurs ont été créés et assignés dans leurs Unités Organisationn
 ![Comptes utilisateurs enregistrés dans l'OU Québec](Images/Utilisateurs-QC.png)
 *Figure 3 : Liste des comptes utilisateurs configurés dans l'OU Quebec > Utilisateurs.*
 
-![Conteneur des groupes de l'OU Québec](Images/Utilisateurs-MTL_4.png)
+![Conteneur des groupes de l'OU Québec](Images/Utilisateurs-MTL.png)
 *Figure 4 : Vue du dossier Groupes pour le site de Québec.*
 
 ---
