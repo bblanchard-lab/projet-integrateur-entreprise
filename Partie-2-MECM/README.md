@@ -59,3 +59,7 @@
 ### 4. Dépendances Windows Server & Installation de MECM
 * **Rôles et fonctionnalités :** Installation de WSUS (avec connectivité SQL), BITS, et Remote Differential Compression (RDC).
 * **Déploiement MECM :** Exécution du programme d'installation (`splash.exe`), choix du site principal autonome, acceptation des licences, téléchargement des fichiers requis, et assignation du code de site *(ex: `SA1`)*.
+
+## Résultat attendu de l'interface Microsoft Configuration Manager
+
+![Interface fonctionnelle](Interface-fonctionnelle.png)
