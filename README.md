@@ -28,7 +28,7 @@ Voici le découpage détaillé du projet. Cliquez sur les sous-dossiers pour acc
   * Chiffrement des stations via BitLocker avec sauvegarde des clés dans l'AD.
 
 *  **[Partie 2 : Gestion des Systèmes & Déploiement MECM / SCCM](./Partie-2-MECM/)**
-  * *(Résumé rapide des gros points de ta partie 2 ici)*.
+  * *(Résumé à venir)*.
 
 ---
 
