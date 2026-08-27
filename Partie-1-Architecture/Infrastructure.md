@@ -8,7 +8,7 @@ Ce document présente la configuration de l'infrastructure réseau Active Direct
 
 L'architecture AD a été conçue pour séparer les ressources selon les deux sites géographiques de l'entreprise : **Montreal** et **Quebec**.
 
-![Structure Active Directory Citadelle Solutions](/Images/Structure-AD.png)
+![Structure Active Directory Citadelle Solutions](Images/Structure-AD.png)
 *Figure 1 : Arborescence de l'OU principale Citadelle_Solutions et sous-OU régionales.*
 
 * **OU Principale :** `Citadelle_Solutions`
@@ -21,7 +21,7 @@ L'architecture AD a été conçue pour séparer les ressources selon les deux si
 
 Pour appliquer le modèle AGDLP et gérer les accès aux dossiers partagés, l'ensemble des groupes globaux a été structuré par département.
 
-![Groupes de sécurité globaux à Montréal](/Images/Groupes.png)
+![Groupes de sécurité globaux à Montréal](Images/Groupes.png)
 *Figure 2 : Liste des groupes de sécurité globaux créés dans l'OU Montreal > Groupes.*
 
 * **Groupes Départementaux (`GG_*`) :** `GG_Direction`, `GG_Finance`, `GG_Marketing`, `GG_RH`, `GG_ServiceClients`, `GG_Production`, `GG_Informatique`.
@@ -33,10 +33,10 @@ Pour appliquer le modèle AGDLP et gérer les accès aux dossiers partagés, l'e
 
 Les utilisateurs ont été créés et assignés dans leurs Unités Organisationnelles respectives pour garantir une gestion étanche des droits.
 
-![Comptes utilisateurs enregistrés dans l'OU Québec](/Images/Utilisateurs-QC.png)
+![Comptes utilisateurs enregistrés dans l'OU Québec](Images/Utilisateurs-QC.png)
 *Figure 3 : Liste des comptes utilisateurs configurés dans l'OU Quebec > Utilisateurs.*
 
-![Conteneur des groupes de l'OU Québec](/Images/Utilisateurs-MTL_4.png)
+![Conteneur des groupes de l'OU Québec](Images/Utilisateurs-MTL_4.png)
 *Figure 4 : Vue du dossier Groupes pour le site de Québec.*
 
 ---
@@ -45,7 +45,7 @@ Les utilisateurs ont été créés et assignés dans leurs Unités Organisationn
 
 Le durcissement de la sécurité des accès est appliqué à l'ensemble du domaine via l'Éditeur de gestion des stratégies de groupe (*Default Domain Policy*).
 
-![Configuration de la stratégie de mot de passe](/Images/Mots-de-passe.png)
+![Configuration de la stratégie de mot de passe](Images/Mots-de-passe.png)
 *Figure 5 : Paramètres de sécurité des mots de passe de domaine.*
 
 | Paramètre de Sécurité | Configuration Appliquée |
@@ -62,7 +62,7 @@ Le durcissement de la sécurité des accès est appliqué à l'ensemble du domai
 
 Afin de verrouiller l'environnement de travail des postes clients standards, une stratégie dédiée `GPO_BureauStandard` a été mise en place.
 
-![Restriction GPO sur le Bureau Standard](/Images/Restrictions.png)
+![Restriction GPO sur le Bureau Standard](Images/Restrictions.png)
 *Figure 6 : Activation de la restriction sur le menu contextuel de la Corbeille.*
 
 * **Verrouillage du Bureau :** Désactivation de l'accès aux propriétés contextuelles de la Corbeille (`Supprimer les propriétés du menu contextuel de la Corbeille : Activé`).
