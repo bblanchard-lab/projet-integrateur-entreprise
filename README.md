@@ -69,3 +69,44 @@ Mise en place et liaison de la stratégie GPO_LecteursReseaux sur l'OU Citadelle
 * $H:= DATA\Production
 * $G:= DATA\Public   
 * $P:= Dossier Personnel (Connecté automatiquement pour chaque utilisateur)
+
+## 5. Configuration des Stations de Travail, Sécurité & Hardening
+
+Pour répondre aux exigences de la direction, l'ensemble des postes de travail clients est soumis à des politiques de groupe (GPO) visant à restreindre les privilèges des utilisateurs standards (à l'exception du technicien TI) et à appliquer un durcissement (hardening) strict.
+
+### 5.1. Configuration du Bureau Standard (Droits Restreints)
+Création et liaison d'une GPO dédiée appliquée aux Unités Organisationnelles des utilisateurs afin de verrouiller l'environnement de travail :
+* **Menu Exécuter :** Suppression du raccourci dans le menu Démarrer.
+* **Outils système :** Blocage de l'accès à l'Invite de commandes (CMD), au Registre (`regedit`) et au Gestionnaire de tâches via les paramètres de stratégie d'administration.
+* **Corbeille :** Masquage et interdiction d'accès à l'onglet des propriétés de la Corbeille.
+* **Console PowerShell :** Désactivation de l'exécutable PowerShell pour les comptes non-administrateurs afin de limiter la surface d'attaque en cas d'exécution de scripts malveillants.
+
+---
+
+### 5.2. Stratégie de Sécurité des Comptes & Durcissement (GPO)
+Application des règles de sécurité sur la stratégie de domaine par défaut (*Default Domain Policy*) et via des GPOs ciblées :
+
+* **Politique de mots de passe :**
+  * **Longueur minimale :** 12 caractères.
+  * **Exigences de complexité :** Activées (majuscules, minuscules, chiffres, caractères spéciaux).
+  * **Historique :** Conservation des 5 derniers mots de passe pour empêcher la réutilisation immédiate.
+  * **Expiration :** Renouvellement forcé tous les 180 jours (6 mois).
+  * **Dictionnaire :** Blocage des mots de passe courants/simplistes via le filtrage natif AD.
+
+* **Verrouillage des comptes & Session :**
+  * **Seuil de verrouillage :** Compte verrouillé après 3 tentatives infructueuses.
+  * **Durée de verrouillage :** Réactivation possible après 15 minutes.
+  * **Mise en veille :** Verrouillage automatique de la session de travail après 15 minutes d'inactivité.
+
+* **Sécurité du système & Confidentialité :**
+  * **Comptes intégrés :** Désactivation systématique du compte `Invité` sur toutes les machines.
+  * **Supports amovibles :** Désactivation complète de l'exécution automatique (*Autorun/Autoplay*) sur les clés USB et lecteurs amovibles.
+  * **Télémétrie :** Blocage de l'envoi de données de diagnostic vers Microsoft.
+  * **Confidentialité :** Désactivation de l'historique d'activités et du suivi utilisateur.
+
+---
+
+### 6. Chiffrement du Stockage (BitLocker)
+Déploiement d'une politique de chiffrement centralisée pour protéger les données au repos sur les postes de travail :
+* **Chiffrement des volumes :** Activation obligatoire de BitLocker sur les disques système des stations.
+* **Sauvegarde AD DS :** Configuration de la GPO pour forcer le stockage automatique des clés de récupération BitLocker directement dans les objets ordinateurs de l'Active Directory (*Active Directory Domain Services*).
