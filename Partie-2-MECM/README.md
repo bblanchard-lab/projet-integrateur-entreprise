@@ -63,3 +63,26 @@
 ## Résultat attendu de l'interface Microsoft Configuration Manager
 
 ![Interface fonctionnelle](Images/Interface-fonctionnelle.png)
+
+# Déploiement d'Agent et d'Application (7-Zip)
+
+## Étape 1 : Préparation des Sources et Déploiement de 7-Zip
+1. **Dossier de Stockage :** Création et partage réseau du dossier `C:\Logiciels` (Chemin UNC : `\\MECM\Logiciels`).
+2. **Package Applicatif :** Téléchargement de la version officielle **MSI (64-bit x64)** de 7-Zip placée dans `\\MECM\Logiciels\7zip\`.
+3. **Création de l'Application :** Importation du fichier `.msi` dans l'espace *Bibliothèque de logiciels* avec récupération automatique des propriétés et des commandes silencieuses.
+4. **Distribution & Déploiement :** Distribution réussie du contenu sur le point de distribution (statut 100% au vert dans l'onglet *Surveillance*) et déploiement poussé en mode **Disponible** (*Available*) sur le regroupement de machines.
+
+---
+
+## Étape 2 : Résolution du Blocage d'Enregistrement de l'Agent (2 Actions)
+**Symptôme :** L'agent sur `PC-MTL-01` restait bloqué avec seulement 2 actions disponibles dans les propriétés de *Configuration Manager* et le *Software Center* restait vide, malgré un statut "Oui" et "Actif" sur le serveur.
+
+**Causes identifiées :** 
+1. Droits d'administration locale non appliqués sur la session courante du poste client (`Vous devez être administrateur local pour afficher et configurer ces paramètres`).
+2. Problème d'évaluation de politique initiale d'authentification machine.
+
+**Résolution appliquée en direct :**
+* Contournement des droits en ouvrant la configuration en mode privilégié via CMD : `control smscfgrc`.
+* Envoi d'une notification push depuis le serveur MECM (*Notification du client -> Télécharger la stratégie d'ordinateur*).
+* Processus finalisé par une purge de nettoyage complète de l'agent pour forcer sa réinitialisation et forcer le client à négocier correctement son enregistrement final auprès du Point de Gestion (Management Point).
+
