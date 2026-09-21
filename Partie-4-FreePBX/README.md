@@ -85,4 +85,5 @@
 
 ## Résultats Attendus de l'Infrastructure
 
-![Architecture et Interfaces de Test](Images/VoIP-Architecture-Test.png)
+![Poste connecté et accessible de l'extérieur](Images/ConfirmationTéléphone.png)
+![Capture du CLI avec les logs](Images/LogAsterisk.png)
