@@ -85,5 +85,5 @@
 
 ## Résultats Attendus de l'Infrastructure
 
-![Poste connecté et accessible de l'extérieur](Images/ConfirmationTéléphone.png)
+![Poste connecté et accessible de l'extérieur](Images/ConfirmationTéléphones.png)
 ![Capture du CLI avec les logs](Images/LogAsterisk.png)
